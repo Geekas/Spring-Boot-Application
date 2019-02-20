@@ -1,0 +1,44 @@
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<div>
+	<nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+		<a class="navbar-brand" href="http://localhost:8080">Magical Minds</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarToggler" aria-controls="navbarToggler"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse text-center" id="navbarToggler">
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active"><a class="nav-link" href="/">Home
+						<span class="sr-only">(current)</span>
+				</a></li>
+				<sec:authorize url="/employee-profile">
+					<li class="nav-item"><a class="nav-link"
+						href="/employee-profile">My profile </a></li>
+				</sec:authorize>
+
+				<sec:authorize url="/employee-list">
+					<li class="nav-item"><a class="nav-link" href="/employee-list">Employee
+							List </a></li>
+				</sec:authorize>
+
+				<sec:authorize url="/employee">
+					<li class="nav-item"><a class="nav-link"
+						href="/employee/employeess">Manage employee</a></li>
+				</sec:authorize>
+				<sec:authorize url="/projects">
+					<li class="nav-item"><a class="nav-link"
+						href="/projects/projects">Manage Projects</a></li>
+				</sec:authorize>
+			</ul>
+			<form class="nav navbar-nav navbar-right my-2 my-lg-0">
+				<a id="signIn" class="nav-link" href="/login">Sign in</a>
+				<sec:authorize url="/employee-profile">
+					<a id="logout" class="nav-link" href="/logout">Logout</a>
+				</sec:authorize>
+			</form>
+		</div>
+	</nav>
+</div>
