@@ -1,6 +1,6 @@
 #Spring boot application
 
-## Rest Apie
+## Rest Api
 
 ## Hibernate
 
